@@ -20,7 +20,6 @@ import itertools
 import math
 import random
 import json
-TOKEN = 'Nzc5MjQ4MjkxMjcwNzU0MzI0.X7dxhg.31W9p-N1lhNv45gW-fIogo34N5w'
 bot = commands.Bot(command_prefix='m>', description="Moa Bot")
 
 async def status_task():
@@ -151,9 +150,17 @@ async def level_up(users, user, channel, server):
         await bot.send_message(channel, f":tada: Congrats {user.mention}, you levelled up to level {lvl_end}!")
         users[user.id + "-" + server.id]["level"] = lvl_end
 
+async def badwords(bad_words,word):
+    ...
+    bad_words = ["yarrak", "piç", "ibne","top","amcık","aptal","gerizekalı","mal","atasız"]
+
+    for word in bad_words:
+        if message.content.count(word) > 0:
+            print("A bad word was said")
+            await message.channel.purge(limit=1)
+    ...
 
 
-
-bot.run('Nzc5MjQ4MjkxMjcwNzU0MzI0.X7dxhg.31W9p-N1lhNv45gW-fIogo34N5w')
+bot.run('TOKEN')
 
 
